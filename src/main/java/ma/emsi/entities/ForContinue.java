@@ -27,7 +27,6 @@ public class ForContinue {
 	private Date DureeJrs;
 	private int Annee;
 	
-	@ManyToOne
-	private Beneficiaire beneficiaire;
+	
 
 }

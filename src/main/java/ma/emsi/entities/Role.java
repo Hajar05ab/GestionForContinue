@@ -23,9 +23,9 @@ public class Role {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String nom;
+	private ERole nom;
 	
 	@ManyToMany
-	private List<User> users;
+	private List<User>users;
 
 }

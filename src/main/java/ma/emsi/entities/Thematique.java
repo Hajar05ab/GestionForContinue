@@ -39,7 +39,5 @@ public class Thematique {
 	private Date DateDebut;
 	private Date DateFin;
 	
-	@ManyToMany
-	private List <Personne> personnes;
 
 }
