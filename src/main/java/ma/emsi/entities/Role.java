@@ -25,7 +25,7 @@ public class Role {
 	private Integer id;
 	private ERole nom;
 	
-	@ManyToMany
+	@ManyToMany(mappedBy = "roles")
 	private List<User>users;
 
 }

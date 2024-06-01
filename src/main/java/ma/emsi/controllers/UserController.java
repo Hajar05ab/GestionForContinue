@@ -21,31 +21,31 @@ public class UserController {
 	private UserService userService;
 
 	@PostMapping(value = "/save")
-	@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
 	public User save(User object) {
 		return userService.save(object);
 	}
 	
 	@PutMapping(value = "/update")
-	@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
 	public User update(User object) {
 		return userService.update(object);
 	}
 	
 	@DeleteMapping(value = "/delete")
-	@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
 	public void delete(User object) {
 		userService.delete(object);
 	}
 	
 	@GetMapping(value = "/{id}")
-	@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
 	public User findById(int id) {
 		return userService.findById(id);
 	}
 	
 	@GetMapping(value = "/")
-	@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
 	public List<User> findAll() {
 		return userService.findAll();
 	}

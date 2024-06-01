@@ -1,9 +1,12 @@
 package ma.emsi.security;
 
 import com.nimbusds.jose.jwk.source.ImmutableSecret;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -22,12 +25,15 @@ import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import javax.crypto.spec.SecretKeySpec;
+import javax.sql.DataSource;
+
 import java.util.List;
 
 @Configuration
@@ -36,14 +42,26 @@ import java.util.List;
 public class SecurityConfig {
     @Value("${jwt.secret}")
     private String secretKey;
-    @Bean
+
+	
+	/*
+	 * @Bean JdbcUserDetailsManager jdbcUserDetailsManager(DataSource dataSource){
+	 * return new JdbcUserDetailsManager(dataSource); }
+	 */
+	
+	  @Bean 
     public InMemoryUserDetailsManager inMemoryUserDetailsManager(){
-        PasswordEncoder passwordEncoder = passwordEncoder();
-        return new InMemoryUserDetailsManager(
-                User.withUsername("hajar").password(passwordEncoder().encode("123456")).authorities("USER").build(),
-                User.withUsername("admin").password(passwordEncoder().encode("123456")).authorities("USER","ADMIN").build()
-        );
-    }
+	  PasswordEncoder passwordEncoder = passwordEncoder(); return new
+	  InMemoryUserDetailsManager(
+	  User.withUsername("hajar").password(passwordEncoder().encode("123456")).
+	  authorities("USER").build(),
+	  User.withUsername("admin").password(passwordEncoder().encode("123456")).
+	  authorities("USER","ADMIN").build() ); }
+	 
+	 
+	
+
+    
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
