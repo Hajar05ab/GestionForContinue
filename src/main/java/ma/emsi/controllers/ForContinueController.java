@@ -24,12 +24,12 @@ public class ForContinueController {
 		return forContinueService.save(object);
 	}
 	
-	@PutMapping(value = "/update")
+	@PutMapping(value = "/update/{id}")
 	public ForContinue update(ForContinue object) {
 		return forContinueService.update(object);
 	}
 	
-	@DeleteMapping(value = "/delete")
+	@DeleteMapping(value = "/delete/{id}")
 	public void delete(ForContinue object) {
 		forContinueService.delete(object);
 	}
@@ -39,7 +39,7 @@ public class ForContinueController {
 		return forContinueService.findById(id);
 	}
 	
-	@GetMapping(value = "/")
+	@GetMapping(value = "")
 	public List<ForContinue> findAll() {
 		return forContinueService.findAll();
 	}

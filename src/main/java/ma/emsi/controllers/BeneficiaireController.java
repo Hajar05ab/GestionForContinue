@@ -24,12 +24,12 @@ public class BeneficiaireController {
 		return beneficiaireService.save(object);
 	}
 	
-	@PutMapping(value = "/update")
+	@PutMapping(value = "/update/{id}")
 	public Beneficiaire update(Beneficiaire object) {
 		return beneficiaireService.update(object);
 	}
 	
-	@DeleteMapping(value = "/delete")
+	@DeleteMapping(value = "/delete/{id}")
 	public void delete(Beneficiaire object) {
 		beneficiaireService.delete(object);
 	}
@@ -39,7 +39,7 @@ public class BeneficiaireController {
 		return beneficiaireService.findById(id);
 	}
 	
-	@GetMapping(value = "/")
+	@GetMapping(value = "")
 	public List<Beneficiaire> findAll() {
 		return beneficiaireService.findAll();
 	}

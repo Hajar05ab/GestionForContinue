@@ -24,12 +24,12 @@ public class ThematiqueController {
 		return thematiqueService.save(object);
 	}
 	
-	@PutMapping(value = "/update")
+	@PutMapping(value = "/update/{id}")
 	public Thematique update(Thematique object) {
 		return thematiqueService.update(object);
 	}
 	
-	@DeleteMapping(value = "/delete")
+	@DeleteMapping(value = "/delete/{id}")
 	public void delete(Thematique object) {
 		thematiqueService.delete(object);
 	}
@@ -39,7 +39,7 @@ public class ThematiqueController {
 		return thematiqueService.findById(id);
 	}
 	
-	@GetMapping(value = "/")
+	@GetMapping(value = "")
 	public List<Thematique> findAll() {
 		return thematiqueService.findAll();
 	}

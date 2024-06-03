@@ -24,12 +24,12 @@ public class DiplomeController {
 		return diplomeService.save(object);
 	}
 	
-	@PutMapping(value = "/update")
+	@PutMapping(value = "/update/{id}")
 	public Diplome update(Diplome object) {
 		return diplomeService.update(object);
 	}
 	
-	@DeleteMapping(value = "/delete")
+	@DeleteMapping(value = "/delete/{id}")
 	public void delete(Diplome object) {
 		diplomeService.delete(object);
 	}
@@ -39,7 +39,7 @@ public class DiplomeController {
 		return diplomeService.findById(id);
 	}
 	
-	@GetMapping(value = "/")
+	@GetMapping(value = "")
 	public List<Diplome> findAll() {
 		return diplomeService.findAll();
 	}

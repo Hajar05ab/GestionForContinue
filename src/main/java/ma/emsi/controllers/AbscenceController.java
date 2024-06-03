@@ -24,12 +24,12 @@ public class AbscenceController {
 		return abscenceService.save(object);
 	}
 	
-	@PutMapping(value = "/update")
+	@PutMapping(value = "/update/{id}")
 	public Abscence update(Abscence object) {
 		return abscenceService.update(object);
 	}
 	
-	@DeleteMapping(value = "/delete")
+	@DeleteMapping(value = "/delete/{id}")
 	public void delete(Abscence object) {
 		abscenceService.delete(object);
 	}
@@ -39,7 +39,7 @@ public class AbscenceController {
 		return abscenceService.findById(id);
 	}
 	
-	@GetMapping(value = "/")
+	@GetMapping(value = "")
 	public List<Abscence> findAll() {
 		return abscenceService.findAll();
 	}

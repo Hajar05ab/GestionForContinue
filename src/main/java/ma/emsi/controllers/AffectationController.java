@@ -24,12 +24,12 @@ public class AffectationController {
 		return affectationService.save(object);
 	}
 	
-	@PutMapping(value = "/update")
+	@PutMapping(value = "/update/{id}")
 	public Affectation update(Affectation object) {
 		return affectationService.update(object);
 	}
 	
-	@DeleteMapping(value = "/delete")
+	@DeleteMapping(value = "/delete/{id}")
 	public void delete(Affectation object) {
 		affectationService.delete(object);
 	}
@@ -39,7 +39,7 @@ public class AffectationController {
 		return affectationService.findById(id);
 	}
 	
-	@GetMapping(value = "/")
+	@GetMapping(value = "")
 	public List<Affectation> findAll() {
 		return affectationService.findAll();
 	}

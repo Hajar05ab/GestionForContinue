@@ -26,13 +26,13 @@ public class UserController {
 		return userService.save(object);
 	}
 	
-	@PutMapping(value = "/update")
+	@PutMapping(value = "/update/{id}")
 	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
 	public User update(User object) {
 		return userService.update(object);
 	}
 	
-	@DeleteMapping(value = "/delete")
+	@DeleteMapping(value = "/delete/{id}")
 	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
 	public void delete(User object) {
 		userService.delete(object);
@@ -44,7 +44,7 @@ public class UserController {
 		return userService.findById(id);
 	}
 	
-	@GetMapping(value = "/")
+	@GetMapping(value = "")
 	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
 	public List<User> findAll() {
 		return userService.findAll();
