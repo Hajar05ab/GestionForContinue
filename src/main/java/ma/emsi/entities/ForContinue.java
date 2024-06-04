@@ -23,7 +23,7 @@ public class ForContinue {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private int DureeJrs;
+	private int Duree_Jrs;
 	private int Annee;
 	
 	
