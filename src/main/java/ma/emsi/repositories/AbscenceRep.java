@@ -5,6 +5,6 @@ import ma.emsi.entities.Abscence;
 
 
 public interface AbscenceRep extends JpaRepository<Abscence, Integer>{
-	public Abscence findById(int id);
+	//public Abscence findById(int id);
 
 }

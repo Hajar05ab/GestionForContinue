@@ -2,12 +2,7 @@ package ma.emsi.controllers;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import ma.emsi.entities.Abscence;
 import ma.emsi.services.AbscenceService;
@@ -20,22 +15,25 @@ public class AbscenceController {
 	private AbscenceService abscenceService;
 	
 	@PostMapping(value = "/save")
-	public Abscence save(Abscence object) {
+	public Abscence save(@RequestBody Abscence object) {
+		System.out.println("Saving Abscence: " + object); // Log the received object
 		return abscenceService.save(object);
 	}
 	
 	@PutMapping(value = "/update/{id}")
-	public Abscence update(Abscence object) {
-		return abscenceService.update(object);
+	public Abscence update(@PathVariable int id, @RequestBody Abscence object) {
+		System.out.println("Updating Abscence ID " + id + ": " + object); // Log the received object and ID
+		return abscenceService.update(id, object);
 	}
 	
 	@DeleteMapping(value = "/delete/{id}")
-	public void delete(Abscence object) {
-		abscenceService.delete(object);
+	public void delete(@PathVariable int id) {
+		System.out.println("Deleting Abscence ID " + id); // Log the ID of the object to be deleted
+		abscenceService.delete(id);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public Abscence findById(int id) {
+	public Abscence findById(@PathVariable int id) {
 		return abscenceService.findById(id);
 	}
 	

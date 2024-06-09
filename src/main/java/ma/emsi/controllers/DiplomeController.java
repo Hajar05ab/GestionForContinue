@@ -2,12 +2,7 @@ package ma.emsi.controllers;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import ma.emsi.entities.Diplome;
 import ma.emsi.services.DiplomeService;
@@ -20,22 +15,25 @@ public class DiplomeController {
 	private DiplomeService diplomeService;
 
 	@PostMapping(value = "/save")
-	public Diplome save(Diplome object) {
+	public Diplome save(@RequestBody Diplome object) {
+		System.out.println("Saving Diplome: " + object); // Log the received object
 		return diplomeService.save(object);
 	}
 	
 	@PutMapping(value = "/update/{id}")
-	public Diplome update(Diplome object) {
-		return diplomeService.update(object);
+	public Diplome update(@PathVariable int id, @RequestBody Diplome object) {
+		System.out.println("Updating Diplome ID " + id + ": " + object); // Log the received object and ID
+		return diplomeService.update(id, object);
 	}
 	
 	@DeleteMapping(value = "/delete/{id}")
-	public void delete(Diplome object) {
-		diplomeService.delete(object);
+	public void delete(@PathVariable int id) {
+		System.out.println("Deleting Diplome ID " + id); // Log the ID of the object to be deleted
+		diplomeService.delete(id);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public Diplome findById(int id) {
+	public Diplome findById(@PathVariable int id) {
 		return diplomeService.findById(id);
 	}
 	

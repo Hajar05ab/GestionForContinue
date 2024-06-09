@@ -2,12 +2,7 @@ package ma.emsi.controllers;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import ma.emsi.entities.Affectation;
 import ma.emsi.services.AffectationService;
@@ -20,22 +15,25 @@ public class AffectationController {
 	private AffectationService affectationService;
 
 	@PostMapping(value = "/save")
-	public Affectation save(Affectation object) {
+	public Affectation save(@RequestBody Affectation object) {
+		System.out.println("Saving Affectation: " + object); // Log the received object
 		return affectationService.save(object);
 	}
 	
 	@PutMapping(value = "/update/{id}")
-	public Affectation update(Affectation object) {
-		return affectationService.update(object);
+	public Affectation update(@PathVariable int id, @RequestBody Affectation object) {
+		System.out.println("Updating Affectation ID " + id + ": " + object); // Log the received object and ID
+		return affectationService.update(id, object);
 	}
 	
 	@DeleteMapping(value = "/delete/{id}")
-	public void delete(Affectation object) {
-		affectationService.delete(object);
+	public void delete(@PathVariable int id) {
+		System.out.println("Deleting Affectation ID " + id); // Log the ID of the object to be deleted
+		affectationService.delete(id);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public Affectation findById(int id) {
+	public Affectation findById(@PathVariable int id) {
 		return affectationService.findById(id);
 	}
 	

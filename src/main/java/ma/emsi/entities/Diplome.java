@@ -14,8 +14,6 @@ import lombok.ToString;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 @ToString
 public class Diplome {
 	
@@ -28,6 +26,47 @@ public class Diplome {
 	
 	@ManyToOne
 	private Beneficiaire beneficiaire;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getDiplomeNom() {
+		return DiplomeNom;
+	}
+
+	public void setDiplomeNom(String diplomeNom) {
+		DiplomeNom = diplomeNom;
+	}
+
+	public String getSpecialite() {
+		return Specialite;
+	}
+
+	public void setSpecialite(String specialite) {
+		Specialite = specialite;
+	}
+
+	public String getNivEtude() {
+		return NivEtude;
+	}
+
+	public void setNivEtude(String nivEtude) {
+		NivEtude = nivEtude;
+	}
+
+	public Beneficiaire getBeneficiaire() {
+		return beneficiaire;
+	}
+
+	public void setBeneficiaire(Beneficiaire beneficiaire) {
+		this.beneficiaire = beneficiaire;
+	}
+	
 	
 	
 

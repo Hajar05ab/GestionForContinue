@@ -17,8 +17,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Getter
-@Setter
 public class Role {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,5 +25,31 @@ public class Role {
 	
 	@ManyToMany(mappedBy = "roles")
 	private List<User>users;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public ERole getNom() {
+		return nom;
+	}
+
+	public void setNom(ERole nom) {
+		this.nom = nom;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+	
+	
 
 }

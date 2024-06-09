@@ -1,6 +1,8 @@
 package ma.emsi.services;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,35 +16,37 @@ public class BeneficiaireService implements DAO<Beneficiaire> {
 	@Autowired
 	private BeneficiaireRep beneficiaireRep;
 
-	@Override
-	public Beneficiaire save(Beneficiaire object) {
-		// TODO Auto-generated method stub
-		return this.beneficiaireRep.save(object);
-	}
+	 @Override
+	    public Beneficiaire save(Beneficiaire object) {
+	        System.out.println("Saving in Service: " + object); // Log the object being saved
+	        return this.beneficiaireRep.save(object);
+	    }
 
-	@Override
-	public Beneficiaire update(Beneficiaire object) {
-		// TODO Auto-generated method stub
-		return this.beneficiaireRep.save(object);
-	}
+	    @Override
+	    public Beneficiaire update(int id, Beneficiaire object) {
+	        object.setId(id);
+	        System.out.println("Updating in Service ID " + id + ": " + object); // Log the object being updated
+	        return this.beneficiaireRep.save(object);
+	    }
 
-	@Override
-	public void delete(Beneficiaire object) {
-		// TODO Auto-generated method stub
-		this.beneficiaireRep.delete(object);
-	}
+	    @Override
+	    public void delete(int id) {
+	        System.out.println("Deleting in Service ID " + id); // Log the ID of the object being deleted
+	        this.beneficiaireRep.deleteById(id);
+	    }
 
-	@Override
-	public Beneficiaire findById(int id) {
-		// TODO Auto-generated method stub
-		return this.beneficiaireRep.findById(id);
-	}
+	    @Override
+	    public Beneficiaire findById(int id) {
+	        Optional<Beneficiaire> optional = this.beneficiaireRep.findById(id);
+	        return optional.orElse(null);
+	    }
 
-	@Override
-	public List<Beneficiaire> findAll() {
-		// TODO Auto-generated method stub
-		return this.beneficiaireRep.findAll();
-	}
+	    @Override
+	    public List<Beneficiaire> findAll() {
+	        return this.beneficiaireRep.findAll();
+	    }
+
+	
 	
 	
 

@@ -15,8 +15,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Getter
-@Setter
 public class Affectation {
 	
 	@Id
@@ -26,5 +24,31 @@ public class Affectation {
 	
 	@ManyToOne
 	private Beneficiaire beneficiaire;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getNumGrp() {
+		return NumGrp;
+	}
+
+	public void setNumGrp(int numGrp) {
+		NumGrp = numGrp;
+	}
+
+	public Beneficiaire getBeneficiaire() {
+		return beneficiaire;
+	}
+
+	public void setBeneficiaire(Beneficiaire beneficiaire) {
+		this.beneficiaire = beneficiaire;
+	}
+	
+	
 
 }

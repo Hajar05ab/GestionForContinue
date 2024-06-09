@@ -17,8 +17,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Getter
-@Setter
 public class Abscence {
 	
 	@Id
@@ -29,5 +27,39 @@ public class Abscence {
 	
 	@ManyToOne
 	private Beneficiaire beneficiaire;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getEtatAbs() {
+		return EtatAbs;
+	}
+
+	public void setEtatAbs(String etatAbs) {
+		EtatAbs = etatAbs;
+	}
+
+	public Date getDateAbs() {
+		return dateAbs;
+	}
+
+	public void setDateAbs(Date dateAbs) {
+		this.dateAbs = dateAbs;
+	}
+
+	public Beneficiaire getBeneficiaire() {
+		return beneficiaire;
+	}
+
+	public void setBeneficiaire(Beneficiaire beneficiaire) {
+		this.beneficiaire = beneficiaire;
+	}
+	
+	
 
 }
