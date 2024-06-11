@@ -2,6 +2,7 @@ package ma.emsi.controllers;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import ma.emsi.entities.Beneficiaire;
@@ -15,18 +16,21 @@ public class BeneficiaireController {
 	private BeneficiaireService beneficiaireService;
 
 	@PostMapping(value = "/save")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public Beneficiaire save(@RequestBody Beneficiaire object) {
 		System.out.println("Saving Beneficiaire: " + object); // Log the received object
 		return beneficiaireService.save(object);
 	}
 	
 	@PutMapping(value = "/update/{id}")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public Beneficiaire update(@PathVariable int id, @RequestBody Beneficiaire object) {
 		System.out.println("Updating Beneficiaire ID " + id + ": " + object); // Log the received object and ID
 		return beneficiaireService.update(id, object);
 	}
 	
 	@DeleteMapping(value = "/delete/{id}")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public void delete(@PathVariable int id) {
 		System.out.println("Deleting Beneficiaire ID " + id); // Log the ID of the object to be deleted
 		beneficiaireService.delete(id);

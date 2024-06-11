@@ -16,34 +16,34 @@ public class UserController {
 	private UserService userService;
 
 	@PostMapping(value = "/save")
-	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public User save(@RequestBody User object) {
 		System.out.println("Saving User: " + object); // Log the received object
 		return userService.save(object);
 	}
 	
 	@PutMapping(value = "/update/{id}")
-	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public User update(@PathVariable int id, @RequestBody User object) {
 		System.out.println("Updating User ID " + id + ": " + object); // Log the received object and ID
 		return userService.update(id, object);
 	}
 	
 	@DeleteMapping(value = "/delete/{id}")
-	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public void delete(@PathVariable int id) {
 		System.out.println("Deleting User ID " + id); // Log the ID of the object to be deleted
 		userService.delete(id);
 	}
 	
 	@GetMapping(value = "/{id}")
-	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public User findById(@PathVariable int id) {
 		return userService.findById(id);
 	}
 	
 	@GetMapping(value = "")
-	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public List<User> findAll() {
 		return userService.findAll();
 	}

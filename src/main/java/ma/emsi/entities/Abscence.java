@@ -1,16 +1,16 @@
 package ma.emsi.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
 @Entity
@@ -25,8 +25,8 @@ public class Abscence {
 	private String EtatAbs;
 	private Date dateAbs;
 	
-	@ManyToOne
-	private Beneficiaire beneficiaire;
+	@OneToMany
+	private List <Beneficiaire> beneficiaire;
 
 	public int getId() {
 		return id;
@@ -52,13 +52,15 @@ public class Abscence {
 		this.dateAbs = dateAbs;
 	}
 
-	public Beneficiaire getBeneficiaire() {
+	public List<Beneficiaire> getBeneficiaire() {
 		return beneficiaire;
 	}
 
-	public void setBeneficiaire(Beneficiaire beneficiaire) {
+	public void setBeneficiaire(List<Beneficiaire> beneficiaire) {
 		this.beneficiaire = beneficiaire;
 	}
+
+	
 	
 	
 
