@@ -24,8 +24,7 @@ public class Diplome {
 	private String Specialite;
 	private String NivEtude;
 	
-	@ManyToOne
-	private Beneficiaire beneficiaire;
+	
 
 	public int getId() {
 		return id;
@@ -59,13 +58,7 @@ public class Diplome {
 		NivEtude = nivEtude;
 	}
 
-	public Beneficiaire getBeneficiaire() {
-		return beneficiaire;
-	}
-
-	public void setBeneficiaire(Beneficiaire beneficiaire) {
-		this.beneficiaire = beneficiaire;
-	}
+	
 	
 	
 	

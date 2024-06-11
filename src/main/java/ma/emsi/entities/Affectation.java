@@ -22,8 +22,7 @@ public class Affectation {
 	private int id;
 	private int NumGrp;
 	
-	@ManyToOne
-	private Beneficiaire beneficiaire;
+	
 
 	public int getId() {
 		return id;
@@ -41,13 +40,7 @@ public class Affectation {
 		NumGrp = numGrp;
 	}
 
-	public Beneficiaire getBeneficiaire() {
-		return beneficiaire;
-	}
-
-	public void setBeneficiaire(Beneficiaire beneficiaire) {
-		this.beneficiaire = beneficiaire;
-	}
+	
 	
 	
 
